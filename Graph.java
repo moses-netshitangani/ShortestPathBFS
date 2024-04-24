@@ -14,42 +14,6 @@ public class Graph {
         adjacencyList.get(node).add(neighbour);
     }
 
-    void bfs(int startNode) {
-        Set<Integer> visited = new HashSet<>();
-        Queue<Integer> toVisit = new LinkedList<>();
-
-        toVisit.add(startNode);
-
-        while (!toVisit.isEmpty()) {
-            int currentNode = toVisit.remove();
-            if (!visited.contains(currentNode)) {
-                System.out.println(currentNode);
-                visited.add(currentNode);
-                toVisit.addAll(adjacencyList.get(currentNode));
-            }
-        }
-    }
-
-    void dfs(int startNode) {
-        Set<Integer> visited = new HashSet<>();
-        Stack<Integer> toVisit = new Stack<>();
-
-        toVisit.push(startNode);
-
-        while (!toVisit.isEmpty()) {
-            int currentNode = toVisit.pop();
-            if (!visited.contains(currentNode)) {
-                for (Integer i : adjacencyList.get(currentNode)) {
-                    if (!visited.contains(i)) {
-                        toVisit.push(i);
-                    }
-                }
-                visited.add(currentNode);
-                System.out.println(currentNode);
-            }
-        }
-    }
-
     void findShortestPath(int source, int destination) {
         Set<Integer> visited = new HashSet<>();
         Queue<Integer> toVisit = new LinkedList<>();
